@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="d-flex flex-wrap justify-content-center px-5 pt-5">
+{% for post in data %}
+<div class="col-sm-3">
+    <div class="card mx-2">
+      <div class="card-body">
+        <h5 class="card-title">{{post.title}}</h5>
+        <p class="card-text">{{post.content}}</p>
+            <p>title:{{post.category_name}}</p>
+            <p>Category:
+                {% for cat in post.cateogry.all() %}
+                <button class="btn btn-primary m-2" disabled>{{cat.category_name}}</button>
+                {% endfor %}
+            </p>
+       
+      </div>
+      </div>
+    </div>
+  
+  {% endfor %}
+  
+{% endblock %}
